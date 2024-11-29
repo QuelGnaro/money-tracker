@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+  <div class="conatiner">
+    <ion-card style="background: none">
+      <img alt="Logo" src="./assets/images/logo.png" class="logo" />
+      <ion-card-header>
+        <ion-card-title class="title"
+          >Ti do il benvenuto su Money Tracker!</ion-card-title
+        >
+      </ion-card-header>
+
+      <ion-card-content class="card-content">
+        <p>
+          Questa app ti permette di tenere traccia delle tue spese e dei tuoi
+          guadagni.
+        </p>
+
+        <ion-nav-link
+          router-direction="forward"
+          class="btn-cta"
+          [component]="component"
+        >
+          <ion-button class="custom-btn"> Avanti </ion-button>
+        </ion-nav-link>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

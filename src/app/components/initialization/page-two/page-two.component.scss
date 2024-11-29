@@ -1,0 +1,21 @@
+.custom-label {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  width: 100%;
+}
+
+.custom-btn {
+  width: 50%;
+  --color: black;
+  --background: yellow;
+}
+
+.selected {
+  background-color: #d1e7dd; /* Colore evidenziato */
+  border: 1px solid #0f5132; /* Bordo per evidenziare */
+}

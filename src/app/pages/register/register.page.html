@@ -1,0 +1,27 @@
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="conatiner">
+    <ion-card class="card-container">
+      <ion-card-header>
+        <ion-card-title class="title">Register</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="card-content">
+        <app-dynamic-form
+          [form]="registerFormConfig"
+          (formSubmit)="onFormSubmit($event)"
+        ></app-dynamic-form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<!-- TODO: allert per success o fail -->

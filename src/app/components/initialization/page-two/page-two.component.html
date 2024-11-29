@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Page Two</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-searchbar
+    [debounce]="200"
+    (ionInput)="handleInput($event)"
+  ></ion-searchbar>
+
+  <ion-list lines="inset">
+    <ion-item
+      *ngFor="let currency of currencies; let i = index"
+      [class.selected]="selectedIndex === i"
+      (click)="selectItem(currency, i)"
+    >
+      <ion-label class="custom-label">
+        <span>{{ currency.name }} </span>
+        <span>{{ currency.abbreviation }}</span>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-nav-link
+    class="btn-cta"
+    router-direction="forward"
+    [component]="component"
+  >
+    <ion-button class="custom-btn" [disabled]="!selectedItem"
+      >Seleziona la valuta</ion-button
+    >
+  </ion-nav-link>
+</ion-content>

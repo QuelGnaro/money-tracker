@@ -1,0 +1,31 @@
+.conatiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: fixed;
+}
+
+.logo {
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 50%;
+}
+
+.title {
+  text-align: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  ion-button {
+    --background: #93e9be;
+  }
+}

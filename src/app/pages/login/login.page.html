@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true">
+  <div class="conatiner">
+    <ion-card>
+      <img alt="Logo" src="./assets/images/logo.png" class="logo" />
+      <ion-card-header>
+        <ion-card-title class="title">Login</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="card-content">
+        <app-dynamic-form
+          [form]="loginForm"
+          (formSubmit)="onFormSubmit($event)"
+        ></app-dynamic-form>
+        <div class="register">
+          <ion-button (click)="navigateToRegister()"> Iscriviti </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<!-- TODO:spinner autenticazione -->
