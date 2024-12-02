@@ -1,0 +1,30 @@
+.conatiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: fixed;
+}
+
+.title {
+  text-align: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.btn-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  width: 100%;
+}
+
+.custom-btn {
+  width: 50%;
+  --color: black;
+  --background: yellow;
+}

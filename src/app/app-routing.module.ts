@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./pages/folder/folder.module').then(m => m.FolderPageModule)
+    loadChildren: () => import('./pages/folder/folder.module').then(m => m.FolderPageModule),
   },
   {
     path: 'login',
@@ -22,6 +22,34 @@ const routes: Routes = [
   {
     path: 'welcome',
     loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomePageModule)
+  },
+  {
+    path: 'accounts',
+    loadChildren: () => import('./pages/accounts/accounts.module').then(m => m.AccountsPageModule)
+  },
+  {
+    path: 'categories',
+    loadChildren: () => import('./pages/categories/categories.module').then( m => m.CategoriesPageModule)
+  },
+  {
+    path: 'regular-payments',
+    loadChildren: () => import('./pages/regular-payments/regular-payments.module').then( m => m.RegularPaymentsPageModule)
+  },
+  {
+    path: 'memo',
+    loadChildren: () => import('./pages/memo/memo.module').then( m => m.MemoPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'family-groups',
+    loadChildren: () => import('./pages/family-groups/family-groups.module').then( m => m.FamilyGroupsPageModule)
+  },
+  {
+    path: 'charts',
+    loadChildren: () => import('./pages/charts/charts.module').then( m => m.ChartsPageModule)
   },
 ];
 

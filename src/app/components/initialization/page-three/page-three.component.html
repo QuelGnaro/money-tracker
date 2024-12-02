@@ -1,11 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Page Three</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content class="ion-padding">
-  <h1>Page Three</h1>
+<ion-content [fullscreen]="true">
+  <div class="conatiner">
+    <ion-card style="background: none">
+      <ion-card-header>
+        <ion-card-title class="title"
+          >inserisci il saldo del conto principale</ion-card-title
+        >
+      </ion-card-header>
+
+      <ion-card-content class="card-content">
+        <p>puoi aggiungere altri conti nella sezione Conti</p>
+
+        <form [formGroup]="balance">
+          <ion-input
+            type="number"
+            class="input"
+            [label]="currency.abbreviation"
+            formControlName="amount"
+          >
+          </ion-input>
+
+          <div class="btn-cta">
+            <ion-button
+              class="custom-btn"
+              type="submit"
+              [disabled]="balance.invalid"
+              (click)="onSubmit()"
+            >
+              Avanti
+            </ion-button>
+          </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
