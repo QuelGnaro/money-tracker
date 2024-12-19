@@ -22,7 +22,7 @@ export class PageThreeComponent {
     private rotuer: Router,
     private fb: FormBuilder
   ) {
-    this.currency = this.appStateService.getSelectedItem();
+    this.currency = this.appStateService.getSelectedCurrency();
 
     this.balance = this.fb.group({
       amount: [null, Validators.required],
@@ -32,8 +32,8 @@ export class PageThreeComponent {
   }
 
   onSubmit() {
-    console.log('Submitted values:', this.balance.value);
-    this.navigateToDashboard;
+    this.appStateService.saveInitialBalance(this.balance.value);
+    this.navigateToDashboard();
   }
 
   navigateToDashboard() {

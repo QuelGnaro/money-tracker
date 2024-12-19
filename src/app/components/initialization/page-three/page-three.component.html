@@ -1,3 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Inserisci il saldo iniziale</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
   <div class="conatiner">
     <ion-card style="background: none">
@@ -14,7 +23,7 @@
           <ion-input
             type="number"
             class="input"
-            [label]="currency.abbreviation"
+            [label]="currency.iso"
             formControlName="amount"
           >
           </ion-input>
