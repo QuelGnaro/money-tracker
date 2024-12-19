@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="backToCategories()">
+        <ion-icon
+          slot="start"
+          ios="chevron-back-outline"
+          md="chevron-back-sharp"
+        ></ion-icon>
+        Back</ion-button
+      >
+    </ion-buttons>
+    <ion-title>Nuova Categoria</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <small>Icone</small>
+    <div class="categories-container">
+      <div class="item" *ngFor="let item of defaultCategories">
+        <ion-button shape="round">
+          <ion-icon
+            slot="icon-only"
+            [ios]="item.icon + '-outline'"
+            [md]="item.icon + '-sharp'"
+          >
+          </ion-icon
+        ></ion-button>
+        <small>{{item.name}}</small>
+      </div>
+      <div class="item add">
+        <ion-button shape="round" (click)="goToIconList()">
+          <ion-icon
+            slot="icon-only"
+            ios="ellipsis-horizontal-outline"
+            md="ellipsis-horizontal-sharp"
+          ></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

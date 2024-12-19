@@ -1,0 +1,50 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  height: 100%;
+}
+
+.segment {
+  display: flex;
+  height: 5%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+
+  ion-button {
+    --background: none;
+    --color: white;
+    height: fit-content;
+  }
+}
+
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 80px);
+  justify-content: center;
+  height: fit-content;
+  gap: 1em;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+
+  ion-icon {
+    width: 75%;
+    height: 75%;
+    color: white;
+  }
+
+  ion-button {
+    width: 60px;
+    height: 60px;
+  }
+}
