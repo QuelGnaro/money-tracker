@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="backToNewCategory()">
+        <ion-icon
+          slot="start"
+          ios="chevron-back-outline"
+          md="chevron-back-sharp"
+        ></ion-icon>
+        Back</ion-button
+      >
+    </ion-buttons>
+    <ion-title>Catalogo Icone</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div
+      class="category-container"
+      *ngFor="let item of iconsList; let i = index"
+    >
+      <h4>{{item.name}}:</h4>
+      <div class="category-icon-container">
+        <div
+          class="item"
+          [ngClass]="{ selected: isIconSelected(i, item.label) }"
+          *ngFor="let item of item.icons"
+        >
+          <ion-button
+            color="medium"
+            shape="round"
+            (click)="selectIcon(i, item.label)"
+          >
+            <ion-icon
+              slot="icon-only"
+              [ios]="item.label + '-outline'"
+              [md]="item.label +
+            '-sharp'"
+            ></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <ion-button
+        shape="round"
+        color="warning"
+        [disabled]="selectedIcon===null"
+        (click)="useIcon()"
+        >Seleziona</ion-button
+      >
+    </div>
+  </div>
+</ion-content>
