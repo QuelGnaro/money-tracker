@@ -7,7 +7,7 @@ ion-menu-button {
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: 5%;
   transform: translateY(-50%);
 }
 
@@ -25,4 +25,20 @@ ion-menu-button {
 
 #container a {
   text-decoration: none;
+}
+
+.custom-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
 }
