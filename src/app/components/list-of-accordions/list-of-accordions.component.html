@@ -1,0 +1,78 @@
+<ion-list class="accordion-list">
+  <ion-item *ngFor="let item of accordions; let i = index">
+    <ion-accordion-group style="width: 100%" *ngIf="item.tags.length === 0">
+      <ion-accordion [readonly]="true" toggleIcon="">
+        <ion-item slot="header" color="light">
+          <div
+            class="icon-container"
+            [ngStyle]="{ 'background-color': item.category.color }"
+          >
+            <ion-icon
+              [ios]="item.category.icon + '-outline'"
+              [md]="item.category.icon + '-sharp'"
+            ></ion-icon>
+          </div>
+
+          <ion-label>{{ item.category.name }}</ion-label>
+        </ion-item>
+      </ion-accordion>
+    </ion-accordion-group>
+    <!-- * accordion attivo per item con tags -->
+
+    <ion-accordion-group *ngIf="item.tags.length !== 0" style="width: 100%">
+      <ion-accordion>
+        <ion-item slot="header" color="light">
+          <div
+            class="icon-container"
+            [ngStyle]="{ 'background-color': item.category.color }"
+          >
+            <ion-icon
+              [ios]="item.category.icon + '-outline'"
+              [md]="item.category.icon + '-sharp'"
+            ></ion-icon>
+          </div>
+          <ion-label>{{ item.category.name }}</ion-label>
+        </ion-item>
+        <div
+          class="ion-padding"
+          slot="content"
+          *ngFor="let tag of accordions[i].tags"
+        >
+          <div class="tag-container">
+            <div>
+              <span style="margin-right: 10px">#</span>
+              <span>{{ tag.name }}</span>
+            </div>
+            <span>metti %</span>
+            <span>{{ item.amount }} {{ item.currency.symbol }}</span>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-item>
+
+  <ion-item *ngFor="let item of accounts; let i = index">
+    <ion-accordion-group style="width: 100%">
+      <ion-accordion [readonly]="true" toggleIcon="">
+        <ion-item class="item-container" slot="header" color="light">
+          <div class="start-item">
+            <div
+              class="icon-container"
+              [ngStyle]="{ 'background-color': item.color }"
+            >
+              <ion-icon
+                [ios]="item.icon + '-outline'"
+                [md]="item.icon + '-sharp'"
+              ></ion-icon>
+            </div>
+
+            <ion-label>{{ item.name }}</ion-label>
+          </div>
+          <div slot="end">
+            <ion-label>{{ item.amount }}</ion-label>
+          </div>
+        </ion-item>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-item>
+</ion-list>
