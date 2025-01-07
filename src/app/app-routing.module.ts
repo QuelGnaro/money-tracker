@@ -3,8 +3,9 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    // ! cambaire quando ci sarà auth guard
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'register',
     pathMatch: 'full'
   },
   {
@@ -29,28 +30,41 @@ const routes: Routes = [
   },
   {
     path: 'categories',
-    loadChildren: () => import('./pages/categories/categories.module').then( m => m.CategoriesPageModule)
+    loadChildren: () => import('./pages/categories/categories.module').then(m => m.CategoriesPageModule)
   },
   {
     path: 'regular-payments',
-    loadChildren: () => import('./pages/regular-payments/regular-payments.module').then( m => m.RegularPaymentsPageModule)
+    loadChildren: () => import('./pages/regular-payments/regular-payments.module').then(m => m.RegularPaymentsPageModule)
   },
   {
-    path: 'memo',
-    loadChildren: () => import('./pages/memo/memo.module').then( m => m.MemoPageModule)
+    path: 'memos',
+    loadChildren: () => import('./pages/memo/memo.module').then(m => m.MemoPageModule)
   },
   {
     path: 'settings',
-    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+    loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsPageModule)
   },
   {
     path: 'family-groups',
-    loadChildren: () => import('./pages/family-groups/family-groups.module').then( m => m.FamilyGroupsPageModule)
+    loadChildren: () => import('./pages/family-groups/family-groups.module').then(m => m.FamilyGroupsPageModule)
   },
   {
     path: 'charts',
-    loadChildren: () => import('./pages/charts/charts.module').then( m => m.ChartsPageModule)
+    loadChildren: () => import('./pages/charts/charts.module').then(m => m.ChartsPageModule)
   },
+  {
+    path: 'transactions',
+    loadChildren: () => import('./pages/transactions/transactions.module').then(m => m.TransactionsPageModule)
+  },
+  {
+    path: 'icons-list',
+    loadChildren: () => import('./pages/icons-list/icons-list.module').then(m => m.IconsListPageModule)
+  },
+  {
+    path: "**",
+    redirectTo: ''
+  },
+
 ];
 
 @NgModule({

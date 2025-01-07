@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ICategory } from 'src/app/interface/category.interface';
 import { ITransaction } from 'src/app/interface/transiction.interface';
 import { AppStateService } from 'src/app/services/app-state.service';
+import { CategoriesService } from 'src/app/services/categories.service';
 import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
@@ -31,18 +33,22 @@ export class FolderPage implements OnInit {
       balance: 3000
     },
   ];
-  expenses: ITransaction[] = [];
-  incomes: ITransaction[] = [];
+
+  expenses: ICategory[] = [];
+  income: ICategory[] = [];
+
   constructor(
     private router: Router,
     private appStateService: AppStateService,
-    private transactionsService: TransactionsService,
+    private categoriesService: CategoriesService
   ) { }
 
   ngOnInit(): void {
     this.balance = this.appStateService.getInitialBalance();
-    this.expenses = this.transactionsService.getExpenses();
-    this.incomes = this.transactionsService.getIncome();
+    this.expenses = this.categoriesService.getExpenses();
+    this.income = this.categoriesService.getIncomes();
+    console.log('expenses', this.expenses, 'income', this.income);
+
   }
 
   navigateToTransactionList() {

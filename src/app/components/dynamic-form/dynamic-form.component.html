@@ -4,12 +4,13 @@
       *ngIf="['text', 'email', 'number', 'date'].includes(control.type)"
       [class]="control.class"
     >
-      <label class="form-label"> {{ control.label }}</label>
       <ion-input
+        label="{{ control.label }}"
         formControlName="{{ control.name }}"
-        class="form-control"
         [type]="control.type"
-      />
+        label-placement="floating"
+        placeholder="{{ control.placeholder }}"
+      ></ion-input>
       <small
         *ngIf="
           (dynamicForm.get(control.name)?.invalid &&
@@ -116,6 +117,8 @@
         >{{ getValidationErrorMessage(control) }}</small
       >
     </div>
+
+    <!-- TODO: sistemare le checkbox ma con ion-toggle vedere se funziona -->
 
     <div
       *ngIf="control.type === 'checkbox' && !control.options"

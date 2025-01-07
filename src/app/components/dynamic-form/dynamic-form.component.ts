@@ -3,11 +3,13 @@ import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IForm, IFormControl, IValidator } from '../../interface/form.interface';
 import { IonicModule } from '@ionic/angular';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-dynamic-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, IonicModule],
+  imports: [CommonModule, ReactiveFormsModule, IonicModule,],
   templateUrl: './dynamic-form.component.html',
   styleUrl: './dynamic-form.component.scss'
 })

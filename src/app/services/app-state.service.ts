@@ -17,18 +17,21 @@ export class AppStateService {
     // ! mok initial balance
     this.initialBalance = {
       id: 1,
+      name: 'Cash',
       amount: 1000,
+      isJoint: false,
+      icon: {
+        id: 1,
+        label: 'cash'
+      },
+      color: '#00FF00',
       currency: {
         name: 'Euro',
         iso: 'EUR',
         symbol: '€'
       },
-      icon: 'cash',
-      color: 'green',
-      name: 'prova',
-      isJoint: false,
       doNotShow: false,
-      checked: false,
+      checked: false
     };
   }
 

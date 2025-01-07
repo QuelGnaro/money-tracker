@@ -11,7 +11,7 @@ export class AppComponent {
     { title: 'Grafici', url: 'charts', icon: 'pie-chart' },
     { title: 'Categorie', url: '/categories', icon: 'apps' },
     { title: 'Pagamenti Regolari', url: '/regular-payments', icon: 'repeat' },
-    { title: 'Promemoria', url: '/memo', icon: 'calendar' },
+    { title: 'Promemoria', url: '/memos', icon: 'calendar' },
     { title: 'Impostazioni', url: '/settings', icon: 'cog' },
     { title: 'Gruppi/Famiglia', url: '/family-groups', icon: 'people' },
   ];

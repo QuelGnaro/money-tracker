@@ -7,7 +7,6 @@
     <ion-buttons slot="end">
       <ion-button (click)="navigateToTransactionList()">
         <ion-icon
-          aria-hidden="true"
           slot="start"
           ios="receipt-outline"
           md="receipt-sharp"
@@ -17,16 +16,10 @@
     <ion-title>
       <div class="title-container">
         <ion-button fill="clear" id="open-modal">
-          <ion-icon
-            slot="start"
-            aria-hidden="true"
-            ios="cash-outline"
-            md="cash-sharp"
-          ></ion-icon>
+          <ion-icon slot="start" ios="cash-outline" md="cash-sharp"></ion-icon>
           Totale
           <ion-icon
             slot="end"
-            aria-hidden="true"
             ios="caret-down-outline"
             md="caret-down-sharp"
           ></ion-icon
@@ -55,15 +48,13 @@
         <span style="display: block"
           ><app-chart-container></app-chart-container
         ></span>
-        <app-list-of-accordions
-          [accordions]="expenses"
-        ></app-list-of-accordions>
+        <app-list-of-accordions [data]="expenses"></app-list-of-accordions>
       </ion-segment-content>
       <ion-segment-content id="second">
         <span style="display: block"
           ><app-chart-container></app-chart-container
         ></span>
-        <app-list-of-accordions [accordions]="incomes"></app-list-of-accordions>
+        <app-list-of-accordions [data]="income"></app-list-of-accordions>
       </ion-segment-content>
     </ion-segment-view>
   </div>

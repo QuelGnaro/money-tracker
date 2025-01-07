@@ -40,10 +40,10 @@
 }
 
 .cta {
-  position: fixed;
-  bottom: 2em;
   width: 100%;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   ion-button {
     width: 90%;
     margin: 0 auto;
@@ -51,12 +51,11 @@
 }
 
 .container {
-  border: red 1px solid;
+  height: 90%;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1em;
   padding: 1em;
-  height: fit-content;
-  padding-bottom: 6em;
+  overflow: auto;
 }

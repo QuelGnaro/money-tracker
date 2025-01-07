@@ -7,138 +7,14 @@ import { IAccount } from '../interface/account.interface';
 export class AccountsService {
   accounts: IAccount[] = [
     {
-      id: 1,
-      name: "Account 1",
-      amount: 1000,
-      isJoint: false,
-      coOwners: [],
-      icon: "key",
-      color: "orange",
-      currency: {
-        iso: "USD",
-        name: "USD",
-        symbol: "$"
-      },
-      doNotShow: false,
-      checked: false,
-      transactions: [],
-      subAccounts: []
-    },
-    {
-      id: 1,
-      name: "Account 1",
-      amount: 1000,
-      isJoint: false,
-      coOwners: [],
-      icon: "key",
-      color: "orange",
-      currency: {
-        iso: "USD",
-        name: "USD",
-        symbol: "$"
-      },
-      doNotShow: false,
-      checked: false,
-      transactions: [],
-      subAccounts: []
-    },
-    {
-      id: 1,
-      name: "Account 1",
-      amount: 1000,
-      isJoint: false,
-      coOwners: [],
-      icon: "key",
-      color: "orange",
-      currency: {
-        iso: "USD",
-        name: "USD",
-        symbol: "$"
-      },
-      doNotShow: false,
-      checked: false,
-      transactions: [],
-      subAccounts: []
-    },
-    {
-      id: 1,
-      name: "Account 1",
-      amount: 1000,
-      isJoint: false,
-      coOwners: [],
-      icon: "key",
-      color: "orange",
-      currency: {
-        iso: "USD",
-        name: "USD",
-        symbol: "$"
-      },
-      doNotShow: false,
-      checked: false,
-      transactions: [],
-      subAccounts: []
-    },
-    {
-      id: 1,
-      name: "Account 1",
-      amount: 1000,
-      isJoint: false,
-      coOwners: [],
-      icon: "key",
-      color: "orange",
-      currency: {
-        iso: "USD",
-        name: "USD",
-        symbol: "$"
-      },
-      doNotShow: false,
-      checked: false,
-      transactions: [],
-      subAccounts: []
-    },
-    {
-      id: 1,
-      name: "Account 1",
-      amount: 1000,
-      isJoint: false,
-      coOwners: [],
-      icon: "key",
-      color: "orange",
-      currency: {
-        iso: "USD",
-        name: "USD",
-        symbol: "$"
-      },
-      doNotShow: false,
-      checked: false,
-      transactions: [],
-      subAccounts: []
-    },
-    {
-      id: 1,
-      name: "Account 1",
-      amount: 1000,
-      isJoint: false,
-      coOwners: [],
-      icon: "key",
-      color: "orange",
-      currency: {
-        iso: "USD",
-        name: "USD",
-        symbol: "$"
-      },
-      doNotShow: false,
-      checked: false,
-      transactions: [],
-      subAccounts: []
-    },
-    {
       id: 2,
       name: "Account 2",
       amount: 500,
       isJoint: true,
-      coOwners: ["user1", "user2"],
-      icon: "business",
+      icon: {
+        id: 1,
+        label: "cash"
+      },
       color: "red",
       currency: {
         iso: "USD",
@@ -147,7 +23,6 @@ export class AccountsService {
       },
       doNotShow: false,
       checked: false,
-      transactions: [],
       subAccounts: []
     },
     {
@@ -155,8 +30,10 @@ export class AccountsService {
       name: "Account 3",
       amount: 2000,
       isJoint: false,
-      coOwners: [],
-      icon: "wallet",
+      icon: {
+        id: 1,
+        label: "cash"
+      },
       color: "blue",
       currency: {
         iso: "USD",
@@ -165,7 +42,6 @@ export class AccountsService {
       },
       doNotShow: true,
       checked: false,
-      transactions: [],
       subAccounts: []
     }
   ];

@@ -5,107 +5,91 @@ import { ITransaction } from '../interface/transiction.interface';
   providedIn: 'root'
 })
 export class TransactionsService {
-  public expenses: ITransaction[] = [];
-  public incomes: ITransaction[] = [];
+  transactions: ITransaction[] = [];
 
   mokData: ITransaction[] = [
     {
       id: 1,
+      amount: 100,
+      date: new Date(),
+      comment: 'comment',
+      images: [''],
+      tags: ['tag'],
+      currency: {
+        iso: 'USD',
+        name: 'Dollaro USA',
+        symbol: '$',
+      },
       type: 'expense',
-      comment: '',
-      accountId: 1,
-      images: [],
-      tags: [],
-      currency: { name: 'Dollaro', iso: 'USD', symbol: '$' },
-      categoryId: 1,
-      amount: 50,
-      date: new Date('2021-07-01')
+      updatedAt: new Date(),
+      deleted: false,
+      photoURLs: ['']
     },
     {
       id: 2,
-      type: 'expense',
-      comment: 'Gym',
-      accountId: 1,
-      images: [],
-      tags: [{ name: 'Gym', id: 1 }, { name: 'Sport', id: 2 }],
-      currency: { name: 'Dollaro', iso: 'USD', symbol: '$' },
-      categoryId: 1,
-      amount: 50,
-      date: new Date('2021-07-01')
-    },
-    {
-      id: 2,
-      type: 'expense',
-      comment: 'Gym',
-      accountId: 1,
-      images: [],
+      amount: 100,
+      date: new Date(),
+      comment: 'comment',
+      images: [''],
       tags: [],
-      currency: { name: 'Dollaro', iso: 'USD', symbol: '$' },
-      categoryId: 1,
-      amount: 50,
-      date: new Date('2021-07-01')
+      currency: {
+        iso: 'USD',
+        name: 'Dollaro USA',
+        symbol: '$',
+      },
+      type: 'expense',
+      updatedAt: new Date(),
+      deleted: false,
+      photoURLs: ['']
     },
     {
       id: 3,
+      amount: 100,
+      date: new Date(),
+      comment: 'comment',
+      images: [''],
+      tags: ['tag'],
+      currency: {
+        iso: 'USD',
+        name: 'Dollaro USA',
+        symbol: '$',
+      },
       type: 'expense',
-      comment: 'car',
-      accountId: 1,
-      images: [],
-      tags: [],
-      currency: { name: 'Dollaro', iso: 'USD', symbol: '$' },
-      categoryId: 1,
-      amount: 50,
-      date: new Date('2021-07-01')
+      updatedAt: new Date(),
+      deleted: false,
+      photoURLs: ['']
     }
   ];
   constructor(
   ) { }
 
+  getTransactions(): ITransaction[] {
+    return this.mokData;
+  }
+
+  getTransactionById(id: number): ITransaction {
+    return this.mokData.find(item => item.id === id)!;
+  }
+
+
   addTransaction(transaction: ITransaction): void {
-    if (transaction.type === 'expense') {
-      this.expenses.push(transaction);
-    } else {
-      this.incomes.push(transaction);
-    }
-  }
-
-  getExpenses(): ITransaction[] {
-    // return this.expenses;
-    return this.mokData;
-  }
-
-  getIncome(): ITransaction[] {
-    // return this.incomes;
-    return this.mokData;
+    this.mokData.push(transaction);
   }
 
   removeTransaction(transaction: ITransaction): void {
-    if (transaction.type === 'expense') {
-      this.expenses = this.expenses.filter(expense => expense.id !== transaction.id);
-      this.getExpenses();
-    } else {
-      this.incomes = this.incomes.filter(income => income.id !== transaction.id);
-      this.getIncome();
-    }
+    this.mokData = this.mokData.filter(item => item.id !== transaction.id);
   }
 
   updateTransaction(transaction: ITransaction): void {
-    if (transaction.type === 'expense') {
-      this.expenses = this.expenses.map(expense => {
-        if (expense.id === transaction.id) {
-          return transaction;
-        }
-        return expense;
-      });
-      this.getExpenses();
-    } else {
-      this.incomes = this.incomes.map(income => {
-        if (income.id === transaction.id) {
-          return transaction;
-        }
-        return income;
-      });
-      this.getIncome();
-    }
+    this.mokData = this.mokData.map(item => {
+      if (item.id === transaction.id) {
+        return transaction;
+      }
+      return item;
+    });
   }
+
+
+
+
 }
