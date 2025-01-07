@@ -4,16 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegularPaymentsPageRoutingModule } from './regular-payments-routing.module';
+import { UpdatePaymentPageRoutingModule } from './update-payment-routing.module';
 
-import { RegularPaymentsPage } from './regular-payments.page';
+import { UpdatePaymentPage } from './update-payment.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     SharedModule,
-    RegularPaymentsPageRoutingModule
+    UpdatePaymentPageRoutingModule
   ],
-  declarations: [RegularPaymentsPage]
+  declarations: [UpdatePaymentPage]
 })
-export class RegularPaymentsPageModule { }
+export class UpdatePaymentPageModule { }

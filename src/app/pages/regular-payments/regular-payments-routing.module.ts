@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: RegularPaymentsPage
+  },
+  {
+    path: 'new-payment',
+    loadChildren: () => import('./new-payment/new-payment.module').then(m => m.NewPaymentPageModule)
+  },
+  {
+    path: 'update-payment/:id',
+    loadChildren: () => import('./update-payment/update-payment.module').then(m => m.UpdatePaymentPageModule)
   }
 ];
 
@@ -14,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class RegularPaymentsPageRoutingModule {}
+export class RegularPaymentsPageRoutingModule { }
