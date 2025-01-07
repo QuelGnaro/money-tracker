@@ -8,9 +8,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">accounts</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <div class="top-section">
+      <div class="text-center">
+        <p>Totale</p>
+        <h3>{{totale}}</h3>
+      </div>
+      <div class="action-btn-cta">
+        <ion-button>Storico</ion-button>
+        <ion-button>Nuovo Giro</ion-button>
+      </div>
+    </div>
+    <div class="bottom-section">
+      <app-list-of-accordions
+        [accounts]="accounts"
+        style="width: 100%"
+      ></app-list-of-accordions>
+    </div>
+
+    <div class="plus-button-cta">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </div>
+  </div>
 </ion-content>
