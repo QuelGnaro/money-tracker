@@ -3,14 +3,37 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>Promemoria</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">memo</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <div class="memo-list-container">
+      <ion-list>
+        <ion-item-sliding *ngFor="let memo of memos">
+          <ion-item button detail lines="none">
+            <ion-label (click)="memoDetails(memo.id)">
+              <h2>{{ memo.name }}</h2>
+            </ion-label>
+            <ion-toggle
+              [enableOnOffLabels]="true"
+              slot="end"
+              (ionChange)="onToggleNotifications($event)"
+            ></ion-toggle>
+          </ion-item>
+          <ion-item-options side="start">
+            <ion-item-option color="danger" (click)="deleteMemo(memo.id)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+    <div class="plus-button-cta">
+      <ion-fab-button>
+        <ion-icon name="add" (click)="goToNewMemo()"></ion-icon>
+      </ion-fab-button>
+    </div>
+  </div>
 </ion-content>

@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: MemoPage
+  },
+  {
+    path: 'new-memo',
+    loadChildren: () => import('./new-memo/new-memo.module').then(m => m.NewMemoPageModule)
+  },
+  {
+    path: 'update-memo/:id',
+    loadChildren: () => import('./update-memo/update-memo.module').then(m => m.UpdateMemoPageModule)
   }
 ];
 
@@ -14,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MemoPageRoutingModule {}
+export class MemoPageRoutingModule { }

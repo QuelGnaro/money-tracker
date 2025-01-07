@@ -4,16 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MemoPageRoutingModule } from './memo-routing.module';
+import { UpdateMemoPageRoutingModule } from './update-memo-routing.module';
 
-import { MemoPage } from './memo.page';
+import { UpdateMemoPage } from './update-memo.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     SharedModule,
-    MemoPageRoutingModule
+    UpdateMemoPageRoutingModule
   ],
-  declarations: [MemoPage]
+  declarations: [UpdateMemoPage]
 })
-export class MemoPageModule { }
+export class UpdateMemoPageModule { }
