@@ -3,7 +3,6 @@ import { ICurrency } from "./currency.interface";
 
 export interface ITransaction {
   id: number;
-  categoryId: number;
   amount: number;
   date: Date;
   comment: string;

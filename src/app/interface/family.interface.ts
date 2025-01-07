@@ -1,8 +1,13 @@
+import { IIcon } from "./icon.interface";
+
 export interface IFamily {
+  icon: IIcon;
   id: number;
+  color: string;
   name: string;
-  membersIDs: number[];
-  accountsIDs: number[];
+  members: number[]; //profileIDs
+  accounts: number[]; //accountIDs
   updatedAt: Date;
   deleted: boolean;
 }
+

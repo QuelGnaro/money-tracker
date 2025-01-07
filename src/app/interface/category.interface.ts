@@ -12,3 +12,4 @@ export interface ICategory {
   updatedAt: Date;
   deleted: boolean;
 }
+
