@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: FamilyGroupsPage
+  },
+  {
+    path: 'new-group',
+    loadChildren: () => import('./new-group/new-group.module').then(m => m.NewGroupPageModule)
+  },
+  {
+    path: 'family-detail/:id',
+    loadChildren: () => import('./family-detail/family-detail.module').then(m => m.FamilyDetailPageModule)
   }
 ];
 
@@ -14,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FamilyGroupsPageRoutingModule {}
+export class FamilyGroupsPageRoutingModule { }

@@ -3,14 +3,23 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>Gruppi/Famiglia</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">family-groups</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <div class="bottom-section">
+      <app-list-of-accordions
+        [family]="familyGroups"
+        style="width: 100%"
+      ></app-list-of-accordions>
+    </div>
+
+    <div class="plus-button-cta">
+      <ion-fab-button (click)="newFamily()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </div>
+  </div>
 </ion-content>

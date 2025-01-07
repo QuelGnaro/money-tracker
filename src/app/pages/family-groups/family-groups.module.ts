@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
 
 import { FamilyGroupsPageRoutingModule } from './family-groups-routing.module';
 
 import { FamilyGroupsPage } from './family-groups.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
+    SharedModule,
     FamilyGroupsPageRoutingModule
   ],
   declarations: [FamilyGroupsPage]
 })
-export class FamilyGroupsPageModule {}
+export class FamilyGroupsPageModule { }
