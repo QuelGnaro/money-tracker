@@ -4,23 +4,28 @@
       *ngIf="['text', 'email', 'number', 'date'].includes(control.type)"
       [class]="control.class"
     >
-      <ion-input
-        label="{{ control.label }}"
-        formControlName="{{ control.name }}"
-        [type]="control.type"
-        label-placement="floating"
-        placeholder="{{ control.placeholder }}"
-      ></ion-input>
+      <ion-item class="w-75">
+        <ion-input
+          label="{{ control.label }}"
+          formControlName="{{ control.name }}"
+          [type]="control.type"
+          label-placement="floating"
+          placeholder="{{ control.placeholder }}"
+        ></ion-input
+      ></ion-item>
+
       <small
         *ngIf="
           (dynamicForm.get(control.name)?.invalid &&
             dynamicForm.get(control.name)?.touched) ||
           myForm.submitted
         "
-        class="text-danger"
+        class="text-danger mx-3"
         >{{ getValidationErrorMessage(control) }}</small
       >
     </div>
+
+    <!-- !password -->
     <div *ngIf="['password'].includes(control.type)" [class]="control.class">
       <label class="form-label"> {{ control.label }}</label>
       <ion-input type="password">
@@ -37,6 +42,7 @@
       >
     </div>
 
+    <!-- !select -->
     <div *ngIf="control.type === 'select'" [class]="control.class">
       <label class="form-label"> {{ control.label }}</label>
       <select class="form-select" formControlName="{{ control.name }}">
@@ -58,18 +64,22 @@
       >
     </div>
 
+    <!-- !radio -->
     <div *ngIf="control.type === 'radio'" [class]="control.class">
-      <label class="form-label"> {{ control?.label }}</label>
+      <label class="form-label" *ngIf="control.label !== ''">
+        {{ control?.label }}</label
+      >
+
       <ng-container *ngFor="let row of control.radioOptions">
         <div class="form-check">
           <input
             formControlName="{{ control?.name }}"
-            [value]="row"
+            [value]="row.value"
             class="form-check-input"
             type="radio"
           />
           <label class="form-check-label" [for]="control?.name">{{
-            row
+            row.label
           }}</label>
         </div>
       </ng-container>
@@ -84,6 +94,7 @@
       >
     </div>
 
+    <!-- !checkbox -->
     <div
       *ngIf="control.type === 'checkbox' && control.options"
       [class]="control.class"
@@ -147,16 +158,104 @@
         >{{ getValidationErrorMessage(control) }}</small
       >
     </div>
+
+    <!-- <div>selezione partecipanti</div>
+
+    <div>selezione conto da condividere</div> -->
+
+    <!-- !solo per spese previste -->
+
+    <div
+      *ngIf="control.type === 'payment'"
+      class="d-flex flex-row gap-4 align-items-end"
+    >
+      <ion-item class="w-50">
+        <ion-input
+          label="{{ control.label }}"
+          formControlName="{{ control.name }}"
+          type="number"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          label-placement="floating"
+          placeholder="{{ control.placeholder }}"
+        ></ion-input
+      ></ion-item>
+
+      <label for="" class="pb-2">{{ currency }} al mese</label>
+    </div>
+
+    <!-- !solo per icon selector -->
+
+    <div *ngIf="control.type === 'icon-selector'">
+      <label class="form-label mx-3"> {{ control?.label }}</label>
+      <div class="icon-container">
+        <div
+          *ngFor="let item of defaultIcons"
+          class="item"
+          [ngClass]="{ selected: isIconSelected(item.label) }"
+        >
+          <ion-button
+            color="medium"
+            shape="round"
+            (click)="selectIcon(item.label)"
+          >
+            <ion-icon
+              slot="icon-only"
+              [ios]="item.label + '-outline'"
+              [md]="item.label + '-sharp'"
+            ></ion-icon>
+          </ion-button>
+        </div>
+        <div class="item add">
+          <ion-button shape="round" (click)="goToIconList()">
+            <ion-icon
+              slot="icon-only"
+              ios="ellipsis-horizontal-outline"
+              md="ellipsis-horizontal-sharp"
+            ></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="control.type === 'color-picker'">
+      <label class="form-label mx-3"> {{ control?.label }}</label>
+      <div class="color-container">
+        <div
+          class="color-selector"
+          *ngFor="let color of selectedColors"
+          (click)="selectColor(color)"
+          [style.backgroundColor]="color"
+        >
+          <ion-icon
+            slot="icon-only"
+            name="checkmark"
+            *ngIf="isColorSelected(color)"
+            [style.color]="getContrastColor(color)"
+          ></ion-icon>
+        </div>
+        <div class="color-selector">
+          <!-- TODO: rimandare al color picker attraverso modale? -->
+          <ion-icon slot="icon-only" name="add"></ion-icon>
+        </div>
+      </div>
+      <!-- color picker se ce modale meglio, il nuovo colore viene pushato dentro e
+      l'ultimo viene poppato -->
+    </div>
   </ng-container>
-  <ion-button (click)="onSubmit()" type="submit" style="width: 100%">
-    {{ form.saveBtnLabel }}
-  </ion-button>
-  <ion-button
-    (click)="resetForm()"
-    type="submit"
-    class="btn btn-secondary mx-2"
-    *ngIf="form.resetBtnLabel !== ''"
-  >
-    {{ form.resetBtnLabel }}
-  </ion-button>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <ion-button (click)="onSubmit()" type="submit" style="width: 80%">
+      {{ form.saveBtnLabel }}
+    </ion-button>
+    <ion-button
+      (click)="resetForm()"
+      type="submit"
+      class="btn btn-secondary mx-2"
+      *ngIf="form.resetBtnLabel !== ''"
+    >
+      {{ form.resetBtnLabel }}
+    </ion-button>
+  </div>
 </form>
+
+<pre>{{ dynamicForm.value | json }}</pre>
