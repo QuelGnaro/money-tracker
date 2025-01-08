@@ -8,6 +8,17 @@ import { IAccount } from '../interface/account.interface';
 export class AppStateService {
   private selectedCurrency: ICurrency;
   private initialBalance: IAccount;
+
+  colors: string[] = [
+    '#FF0000',
+    '#00FF00',
+    '#0000FF',
+    '#FFFF00',
+    '#FF00FF',
+    '#00FFFF',
+    '#FFA500',
+    '#800080',
+  ];
   constructor() {
     this.selectedCurrency = {
       name: '',
@@ -50,5 +61,14 @@ export class AppStateService {
 
   getInitialBalance(): any {
     return this.initialBalance;
+  }
+
+  getColors(): string[] {
+    return this.colors;
+  }
+
+  selectNewColor(hex: string) {
+    this.colors.unshift(hex);
+    this.colors.pop();
   }
 }
