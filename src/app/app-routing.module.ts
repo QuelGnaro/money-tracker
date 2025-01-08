@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     // ! cambaire quando ci sarà auth guard
     path: '',
-    redirectTo: 'register',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   {

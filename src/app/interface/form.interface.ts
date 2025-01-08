@@ -10,8 +10,8 @@ export interface IFormControl {
   label: string;
   value?: string;
   options?: IOptions[];
-  radioOptions?: string[];
-  placeholder: string;
+  radioOptions?: IRadioOptions[];
+  placeholder?: string;
   class: string;
   type: string;
   validators?: IValidator[];
@@ -25,6 +25,11 @@ export interface IValidator {
   minLength?: number;
   maxLength?: number;
   email?: string;
+}
+
+interface IRadioOptions {
+  label: string;
+  value: string;
 }
 
 interface IOptions {

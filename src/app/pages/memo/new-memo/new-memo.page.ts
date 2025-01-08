@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { paymentForm } from 'src/app/constants/new-payment.constant';
+import { memoForm } from 'src/app/constants/new-memo-form.constant';
 import { IForm } from 'src/app/interface/form.interface';
 import { MemosService } from 'src/app/services/memos.service';
 
@@ -11,7 +11,7 @@ import { MemosService } from 'src/app/services/memos.service';
 })
 export class NewMemoPage implements OnInit {
 
-  memoForm = paymentForm as IForm;
+  memoForm = memoForm as IForm;
 
   constructor(
     private navCtrl: NavController,

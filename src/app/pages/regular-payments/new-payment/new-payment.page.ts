@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { paymentForm } from 'src/app/constants/new-payment.constant';
+import { paymentForm } from 'src/app/constants/new-payment-form.constant';
 import { IForm } from 'src/app/interface/form.interface';
 
 @Component({
